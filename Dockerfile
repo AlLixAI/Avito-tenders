@@ -14,6 +14,6 @@ COPY . .
 
 RUN chmod a+x docker/*.sh
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD ["sh", "/avito/docker/start.sh"]

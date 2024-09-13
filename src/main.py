@@ -14,7 +14,7 @@ app = FastAPI(title="Tender Management API",
               version="1.0",
               servers=[
                   {
-                      "url": f"http://localhost:8000/api",
+                      "url": f"http://localhost:8080/api",
                       "description": "Локальный сервер API"
                   }
               ]

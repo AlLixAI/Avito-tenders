@@ -19,7 +19,7 @@ services:
     container_name: avito_app
     command: ["sh", "/avito/docker/start.sh"]
     ports:
-      - 8000:8000
+      - 8080:8080
     depends_on:
       - db
 
