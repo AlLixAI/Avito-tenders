@@ -1,9 +1,6 @@
-import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
-from src.config import SERVER_ADDRESS
-
 from src.tenders.router import router as router_tenders
 from src.bids.router import router as router_bids
 from src.utils.custom_exceptions import ServerErrorException
@@ -17,7 +14,7 @@ app = FastAPI(title="Tender Management API",
               version="1.0",
               servers=[
                   {
-                      "url": f"http://{SERVER_ADDRESS}/api",
+                      "url": f"http://localhost:8000/api",
                       "description": "Локальный сервер API"
                   }
               ]
@@ -52,8 +49,3 @@ async def check_ping():
 
 app.include_router(router_tenders)
 app.include_router(router_bids)
-
-
-if __name__ == "__main__":
-    host, port = SERVER_ADDRESS.split(":")
-    uvicorn.run(app, host=host, port=int(port))
