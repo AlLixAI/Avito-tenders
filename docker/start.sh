@@ -1,10 +1,7 @@
 #!/bin/sh
 
 # Ожидание готовности базы данных
-until pg_isready -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER"; do
-  echo "Waiting for PostgreSQL..."
-  sleep 2
-done
+./docker/wait-for-it.sh "$DB_HOST:$DB_PORT" --timeout=30 --strict -- echo "PostgreSQL is up"
 
 # Применение миграций
 alembic upgrade head
