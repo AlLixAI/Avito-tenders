@@ -12,7 +12,8 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Установка прав на выполнение скриптов
-RUN chmod +x docker/start.sh docker/wait-for-it.sh
+RUN chmod a+x docker/start.sh
+RUN chmod a+x docker/wait-for-it.sh
 
 # Открытие порта
 EXPOSE 8080
