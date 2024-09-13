@@ -1,19 +1,20 @@
 FROM python:3.12
 
-RUN apt-get update && apt-get install -y postgresql-client
-
-RUN mkdir /avito
-
+# Создание рабочей директории
 WORKDIR /avito
 
+# Копирование и установка зависимостей
 COPY requirements.txt .
-
 RUN pip install -r requirements.txt
 
+# Копирование всех файлов в контейнер
 COPY . .
 
-RUN chmod a+x docker/*.sh
+# Установка прав на выполнение скриптов
+RUN chmod +x docker/start.sh docker/wait-for-it.sh
 
+# Открытие порта
 EXPOSE 8080
 
-CMD ["sh", "/avito/docker/start.sh"]
+# Запуск скрипта
+CMD ["sh", "docker/start.sh"]
