@@ -1,9 +1,13 @@
 #!/bin/sh
 
-SERVER_ADDRESS=${SERVER_ADDRESS:-0.0.0.0:8080}
-HOST=$(echo $SERVER_ADDRESS | cut -d':' -f1)
-PORT=$(echo $SERVER_ADDRESS | cut -d':' -f2)
+# Ожидание готовности базы данных
+until pg_isready -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER"; do
+  echo "Waiting for PostgreSQL..."
+  sleep 2
+done
 
+# Применение миграций
 alembic upgrade head
 
-exec uvicorn src.main:app --host $HOST --port $PORT --workers 4
+# Запуск приложения
+exec uvicorn src.main:app --host 0.0.0.0 --port 8080 --workers 4
