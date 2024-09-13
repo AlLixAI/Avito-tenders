@@ -1,5 +1,6 @@
 FROM python:3.12
 
+RUN mkdir /avito
 # Создание рабочей директории
 WORKDIR /avito
 
@@ -17,4 +18,4 @@ RUN chmod +x docker/start.sh docker/wait-for-it.sh
 EXPOSE 8080
 
 # Запуск скрипта
-CMD ["sh", "docker/start.sh"]
+CMD ["sh", "/avito/docker/start.sh"]
