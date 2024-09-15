@@ -46,6 +46,3 @@ VALUES
 INSERT INTO organization_responsible (id, organization_id, user_id)
 VALUES
     ('550e8400-e29b-41d4-a716-446655440020', '550e8400-e29b-41d4-a716-446655440013', '550e8400-e29b-41d4-a716-446655440005');
-
-#postgres-deployment-6778489f5c-b4kd2
-#

@@ -1,0 +1,8 @@
+# Принудительно использовать LF для всех текстовых файлов
+* text=auto eol=lf
+
+# Принудительно использовать LF для скриптов и конфигурационных файлов
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+Dockerfile text eol=lf
