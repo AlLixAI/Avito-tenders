@@ -55,6 +55,8 @@ docker-compose up --build
    ```sh
    docker exec -it db_app psql -U postgres -d postgres -c "SELECT * FROM employee;"
 
+![Скриншот таблицы employee](images/employee_table.jpg)
+
 2. **Просмотрите данные в таблице organization**
 
    Эта команда извлекает все данные из таблицы employee. Используйте её для проверки, что сотрудники были добавлены в базу данных.
