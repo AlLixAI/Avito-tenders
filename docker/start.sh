@@ -7,4 +7,4 @@
 alembic upgrade head
 
 # Запуск приложения
-exec uvicorn src.main:app --host localhost --port 8080 --workers 4
+exec uvicorn src.main:app --host 0.0.0.0 --port 8080 --workers 4
